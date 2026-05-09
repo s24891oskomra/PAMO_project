@@ -2,9 +2,8 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import type { Walk } from "../types/walks-types";
 import { Ionicons } from "@expo/vector-icons";
 import CustomButton from "@/components/ui/custom-button";
-import { usePatchWalk } from "../hooks/use-walks";
-
-const PRIMARY_COLOR = "#10B981";
+import { useEndWalk } from "../hooks/use-walks";
+import { Colors } from "@/constants/colors";
 
 const parseWalkDate = (date: string) => {
   const normalizedDate = date.includes("T") ? date : date.replace(" ", "T");
@@ -37,7 +36,7 @@ const formatTime = (date: string) => {
 };
 
 export default function WalksCard({ walk }: { walk: Walk }) {
-  const { mutate: patchWalk } = usePatchWalk(walk.id);
+  const { mutate: endWalk } = useEndWalk(walk.id);
   const isOngoing = !walk.walk_end;
 
   return (
@@ -50,7 +49,7 @@ export default function WalksCard({ walk }: { walk: Walk }) {
               className="w-14 h-14 rounded-full"
             />
           ) : (
-            <Ionicons name="paw" size={26} color={PRIMARY_COLOR} />
+            <Ionicons name="paw" size={26} color={Colors.primary.DEFAULT} />
           )}
         </View>
         <Text className="text-sm font-semibold text-gray-800">
@@ -100,7 +99,7 @@ export default function WalksCard({ walk }: { walk: Walk }) {
             title="Zakończ"
             variant="primary"
             style={{ padding: 16 }}
-            onPress={() => patchWalk(walk.id)}
+            onPress={() => endWalk()}
           />
         )}
       </View>

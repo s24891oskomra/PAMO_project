@@ -38,7 +38,7 @@ const variantStyles: Record<
   },
 };
 
-export default function AppButton({
+export default function CustomButton({
   title,
   variant = "primary",
   icon,

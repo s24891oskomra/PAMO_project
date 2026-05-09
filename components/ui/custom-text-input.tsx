@@ -5,7 +5,7 @@ interface AppTextInputProps extends TextInputProps {
   label?: string;
 }
 
-export default function AppTextInput({
+export default function CustomTextInput({
   label,
   ...inputProps
 }: AppTextInputProps) {
