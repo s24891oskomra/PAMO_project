@@ -4,6 +4,7 @@ import { Colors } from "@/constants/colors";
 import { TouchableOpacity, View } from "react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import CustomButton from "@/components/ui/custom-button";
+import { Link } from "expo-router";
 
 export default function TabsLayout() {
   const activeTabColor = Colors.primary[600];
@@ -35,6 +36,9 @@ export default function TabsLayout() {
           backgroundColor: Colors.white,
           borderTopColor: Colors.gray[200],
         },
+        headerStyle: {
+          height: 120,
+        },
       }}
     >
       <Tabs.Screen
@@ -47,19 +51,20 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="walks/index"
+        name="walks"
         options={{
           title: "Spacery",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="walk-sharp" color={color} size={size} />
           ),
           headerRight: () => (
-            <CustomButton
-              title="Dodaj spacer"
-              variant="primary"
-              onPress={() => console.log("add")}
-              style={{ paddingHorizontal: 8 }}
-            />
+            <Link href="/walks/modal" asChild>
+              <CustomButton
+                title="Dodaj spacer"
+                variant="primary"
+                style={{ paddingHorizontal: 8 }}
+              />
+            </Link>
           ),
         }}
       />

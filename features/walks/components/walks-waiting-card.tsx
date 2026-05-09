@@ -1,8 +1,7 @@
 import { View, Image, Text } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { WaitingWalk } from "../types/walks-types";
-
-const PRIMARY_COLOR = "#10B981";
+import { type WaitingWalk } from "../types/walks-types";
+import { Colors } from "@/constants/colors";
 
 export default function WaitingWalkCard({ animal }: { animal: WaitingWalk }) {
   return (
@@ -11,7 +10,7 @@ export default function WaitingWalkCard({ animal }: { animal: WaitingWalk }) {
         {animal.image_url ? (
           <Image source={{ uri: animal.image_url }} className="h-16 w-16" />
         ) : (
-          <Ionicons name="paw" size={28} color={PRIMARY_COLOR} />
+          <Ionicons name="paw" size={28} color={Colors.primary.DEFAULT} />
         )}
       </View>
 
