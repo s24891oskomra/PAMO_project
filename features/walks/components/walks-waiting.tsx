@@ -1,5 +1,5 @@
 import { FlatList, Text, View } from "react-native";
-import { useWaitingWalks } from "../hooks/use-walks";
+import { useWaitingWalksWithImages } from "../hooks/use-walks";
 import WaitingWalkCard from "./walks-waiting-card";
 import { useState } from "react";
 import Loading from "@/components/loading";
@@ -12,7 +12,7 @@ export default function WalksWaiting() {
     isError,
     isLoading,
     refetch,
-  } = useWaitingWalks();
+  } = useWaitingWalksWithImages();
   const [refreshing, setRefreshing] = useState(false);
 
   if (isLoading) {
@@ -38,11 +38,11 @@ export default function WalksWaiting() {
   return (
     <FlatList
       data={waitingWalks}
-      keyExtractor={(item) => item.name}
+      keyExtractor={(item) => item.id}
       renderItem={({ item }) => <WaitingWalkCard animal={item} />}
       ItemSeparatorComponent={() => <View className="h-4" />}
       ListEmptyComponent={
-        <View className="flex-1 items-center justify-center p-4">
+        <View className="items-center justify-center p-4">
           <Text className="text-gray-500">Brak zwierząt oczekujących.</Text>
         </View>
       }

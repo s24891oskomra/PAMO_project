@@ -24,10 +24,11 @@ export const walkResponseSchema = z.object({
 });
 
 export const waitingWalkResponseSchema = z.object({
+  id: z.string(),
   image_url: z.string().nullable(),
   name: z.string(),
-  hours_since_last_walk: z.number(),
-  days_since_last_walk: z.number(),
+  hours_since_last_walk: z.number().nullable(),
+  days_since_last_walk: z.number().nullable(),
 });
 
 export const createWalkRequestSchema = z.object({
