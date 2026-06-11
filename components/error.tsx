@@ -6,7 +6,7 @@ export default function Error({
   refetch,
 }: {
   message: string;
-  error: Error;
+  error: Error | null;
   refetch: () => void;
 }) {
   return (
