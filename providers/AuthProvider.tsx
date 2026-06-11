@@ -1,3 +1,11 @@
+/**
+ * Authentication context: session restore, login, and logout.
+ *
+ * Persists access/refresh tokens and user profile in `expo-secure-store`.
+ *
+ * @module AuthProvider
+ * @category Providers
+ */
 import { createContext, useContext, useState } from "react";
 import type { LoginResponse, User } from "@/features/auth/types/auth-types";
 import * as SecureStore from "expo-secure-store";
@@ -14,6 +22,7 @@ type AuthContextType = {
 
 const AuthContext = createContext<AuthContextType | null>(null);
 
+/** Wraps the app and restores the user session from secure storage on mount. */
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -73,6 +82,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
+/** Returns the auth context. Must be used inside {@link AuthProvider}. */
 export function useAuth() {
   const context = useContext(AuthContext);
 
