@@ -1,0 +1,29 @@
+appId: pl.zwierzapp.app
+---
+- launchApp:
+    clearState: true
+
+- extendedWaitUntil:
+    visible: "Witaj z powrotem"
+    timeout: 20000
+
+- tapOn:
+    id: "login-email"
+- inputText: ${LOGIN_EMAIL}
+
+- tapOn:
+    id: "login-password"
+- inputText: ${LOGIN_PASSWORD}
+
+- hideKeyboard
+
+- tapOn:
+    id: "login-submit"
+
+- extendedWaitUntil:
+    visible: "Pulpit"
+    timeout: 20000
+
+- assertNotVisible: "Witaj z powrotem"
+- assertVisible: "Oczekujące"
+- assertVisible: "Zwierzęta"
