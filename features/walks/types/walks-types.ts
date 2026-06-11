@@ -24,8 +24,9 @@ export type Walk = {
 };
 
 export type WaitingWalk = {
+  id: string;
   image_url: string | null;
   name: string;
-  hours_since_last_walk: number;
-  days_since_last_walk: number;
+  hours_since_last_walk: number | null;
+  days_since_last_walk: number | null;
 };

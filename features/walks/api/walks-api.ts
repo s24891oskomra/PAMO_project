@@ -1,3 +1,9 @@
+/**
+ * Walk management API — list, create, end, and waiting animals.
+ *
+ * @module walks-api
+ * @category Walks
+ */
 import apiClient from "@/client";
 import {
   waitingWalkResponseSchema,
@@ -9,11 +15,13 @@ import type {
   WalkResponseSchema,
 } from "../schemas/walks-schemas";
 
+/** Fetches all walks in the shelter. */
 export const getWalks = async (): Promise<WalkResponseSchema[]> => {
   const response = await apiClient.get("/walks/");
   return walkResponseSchema.array().parse(response.data);
 };
 
+/** Fetches animals waiting for a walk, ordered by priority. */
 export const getWaitingWalks = async (): Promise<
   WaitingWalkResponseSchema[]
 > => {
@@ -21,6 +29,7 @@ export const getWaitingWalks = async (): Promise<
   return waitingWalkResponseSchema.array().parse(response.data);
 };
 
+/** Ends an active walk by setting `walk_end` to the current time. */
 export const endWalk = async (walk_id: string): Promise<WalkResponseSchema> => {
   const response = await apiClient.patch(`/walks/${walk_id}`, {
     walk_end: new Date().toISOString(),
@@ -28,6 +37,7 @@ export const endWalk = async (walk_id: string): Promise<WalkResponseSchema> => {
   return walkResponseSchema.parse(response.data);
 };
 
+/** Starts a new walk for the given animal and walker. */
 export const createWalk = async (
   data: CreateWalkRequestSchema,
 ): Promise<WalkResponseSchema> => {

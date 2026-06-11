@@ -1,11 +1,13 @@
 import { FlatList, Text, View } from "react-native";
 import WalksCard from "./walks-card";
 import { useWalksWithImages } from "../hooks/use-walks";
+import { useAuth } from "@/providers/AuthProvider";
 import { useState } from "react";
 import Loading from "@/components/loading";
 import Error from "@/components/error";
 
-export default function Walks() {
+export default function WalksMine() {
+  const { user } = useAuth();
   const {
     data: walks,
     error,
@@ -29,6 +31,9 @@ export default function Walks() {
     );
   }
 
+  const myWalks =
+    walks?.filter((walk) => walk.walked_by?.id === user?.id) ?? [];
+
   const handleRefresh = async () => {
     setRefreshing(true);
     await refetch();
@@ -37,13 +42,13 @@ export default function Walks() {
 
   return (
     <FlatList
-      data={walks ?? []}
+      data={myWalks}
       renderItem={({ item }) => <WalksCard walk={item} />}
       keyExtractor={(item) => item.id}
       ItemSeparatorComponent={() => <View className="h-4" />}
       ListEmptyComponent={() => (
         <View className="items-center justify-center p-4">
-          <Text className="text-gray-500">Brak spacerów.</Text>
+          <Text className="text-gray-500">Brak Twoich spacerów.</Text>
         </View>
       )}
       onRefresh={handleRefresh}

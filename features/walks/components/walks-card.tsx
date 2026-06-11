@@ -1,39 +1,10 @@
-import { View, Text, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image } from "react-native";
 import type { Walk } from "../types/walks-types";
 import { Ionicons } from "@expo/vector-icons";
 import CustomButton from "@/components/ui/custom-button";
 import { useEndWalk } from "../hooks/use-walks";
 import { Colors } from "@/constants/colors";
-
-const parseWalkDate = (date: string) => {
-  const normalizedDate = date.includes("T") ? date : date.replace(" ", "T");
-  const parsedDate = new Date(normalizedDate);
-
-  return Number.isNaN(parsedDate.getTime()) ? null : parsedDate;
-};
-
-const formatDate = (date: string) => {
-  const parsedDate = parseWalkDate(date);
-
-  if (!parsedDate) return "-";
-
-  return parsedDate.toLocaleDateString("pl-PL", {
-    day: "2-digit",
-    month: "2-digit",
-    year: "numeric",
-  });
-};
-
-const formatTime = (date: string) => {
-  const parsedDate = parseWalkDate(date);
-
-  if (!parsedDate) return "-";
-
-  return parsedDate.toLocaleTimeString("pl-PL", {
-    hour: "2-digit",
-    minute: "2-digit",
-  });
-};
+import { formatDate, formatTime } from "../utils/walks-utils";
 
 export default function WalksCard({ walk }: { walk: Walk }) {
   const { mutate: endWalk } = useEndWalk(walk.id);
@@ -97,7 +68,7 @@ export default function WalksCard({ walk }: { walk: Walk }) {
         {isOngoing && (
           <CustomButton
             title="Zakończ"
-            variant="primary"
+            variant="ghost"
             style={{ padding: 16 }}
             onPress={() => endWalk()}
           />
