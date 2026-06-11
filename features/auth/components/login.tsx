@@ -70,6 +70,7 @@ export default function Login() {
                   style={{ marginRight: 12 }}
                 />
                 <TextInput
+                  testID="login-email"
                   className="flex-1 text-base text-gray-900"
                   placeholder="shelter.admin.krk@example.com"
                   placeholderTextColor={Colors.gray[400]}
@@ -112,6 +113,7 @@ export default function Login() {
                   style={{ marginRight: 12 }}
                 />
                 <TextInput
+                  testID="login-password"
                   className="flex-1 text-base text-gray-900"
                   placeholder="••••••••"
                   placeholderTextColor={Colors.gray[400]}
@@ -142,7 +144,12 @@ export default function Login() {
         </Text>
       )}
 
-      <AppButton title="Zaloguj się" icon="arrow-forward" onPress={onSubmit} />
+      <AppButton
+        testID="login-submit"
+        title="Zaloguj się"
+        icon="arrow-forward"
+        onPress={onSubmit}
+      />
     </SafeAreaView>
   );
 }
