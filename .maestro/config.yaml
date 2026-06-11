@@ -1,0 +1,10 @@
+flows:
+  - "*"
+
+executionOrder:
+  continueOnFailure: false
+  flowsOrder:
+    - login
+    - tab-navigation
+    - walk-lifecycle
+    - user-logout

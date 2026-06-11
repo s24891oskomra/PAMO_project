@@ -1,0 +1,18 @@
+appId: pl.zwierzapp.app
+---
+- launchApp
+
+- tapOn: "Pulpit"
+- assertVisible: "Pulpit"
+
+- tapOn: "Spacery"
+- assertVisible: "Moje"
+
+- tapOn: "Zwierzęta"
+- assertVisible: "Wszystkie zwierzęta"
+
+- tapOn: "Magazyn"
+- assertVisible: "Produkty w magazynie"
+
+- tapOn: "Profil"
+- assertVisible: "E-mail"
