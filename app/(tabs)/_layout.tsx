@@ -42,7 +42,7 @@ export default function TabsLayout() {
       }}
     >
       <Tabs.Screen
-        name="index"
+        name="(home)"
         options={{
           title: "Pulpit",
           tabBarIcon: ({ color, size }) => (
@@ -69,7 +69,7 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
-        name="animals/index"
+        name="animals"
         options={{
           title: "Zwierzęta",
           tabBarIcon: ({ color, size }) => (
@@ -78,11 +78,20 @@ export default function TabsLayout() {
         }}
       />
       <Tabs.Screen
+        name="magazyn"
+        options={{
+          title: "Magazyn",
+          tabBarIcon: ({ color, size }) => (
+            <Ionicons name="cube" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tabs.Screen
         name="profile/index"
         options={{
           title: "Profil",
           headerRight: () => (
-            <TouchableOpacity onPress={() => logout()}>
+            <TouchableOpacity testID="logout-button" onPress={() => logout()}>
               <Ionicons
                 name="log-out"
                 color={Colors.primary.DEFAULT}

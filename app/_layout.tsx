@@ -19,7 +19,7 @@ function RootNavigator() {
     if (!user && !onLoginPage) {
       router.replace("/login");
     } else if (user && onLoginPage) {
-      router.replace("/(tabs)");
+      router.replace("/(tabs)/(home)");
     }
   }, [user, isLoading, segments]);
 
