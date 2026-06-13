@@ -27,12 +27,20 @@ The API address is configured via the `EXPO_PUBLIC_API_URL` variable in the `.en
 ```bash
 npm test                # unit tests (Jest)
 npm run test:watch      # watch mode
-maestro test .maestro   # E2E tests (requires a running emulator and LOGIN_EMAIL / LOGIN_PASSWORD variables)
+npm run test:e2e        # E2E tests (Maestro CLI — no Studio UI required)
 ```
 
-E2E tests (Maestro) cover the following scenarios: login, tab navigation, walk lifecycle, and logout.
+E2E tests require a running emulator/simulator with the dev build installed, plus:
 
-**iOS:** After login, the system may show a **Save Password** sheet. The `login` flow dismisses it automatically. If tests still hang, disable **Settings → Apps → Passwords → Password Options → AutoFill Passwords** on the simulator, or adjust the tap coordinates in `.maestro/subflows/dismiss-ios-save-password.yaml` (use `maestro studio` on your device).
+```env
+LOGIN_EMAIL=your-test-user@example.com
+LOGIN_PASSWORD=your-test-password
+WALK_DOG_TEST_ID=walk-dog-kira
+```
+
+Scenarios: login, tab navigation, walk lifecycle, and logout (`.maestro/`).
+
+**iOS:** After login, the system may show a **Save Password** sheet. The `login` flow dismisses it automatically. If tests still hang, disable **Settings → Apps → Passwords → Password Options → AutoFill Passwords** on the simulator.
 
 ## Documentation
 
