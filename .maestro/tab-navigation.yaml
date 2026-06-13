@@ -2,17 +2,27 @@ appId: pl.zwierzapp.app
 ---
 - launchApp
 
-- tapOn: "Pulpit"
-- assertVisible: "Pulpit"
+- tapOn:
+    id: "tab-home"
+- assertVisible:
+    id: "screen-home"
 
-- tapOn: "Spacery"
-- assertVisible: "Moje"
+- tapOn:
+    id: "tab-walks"
+- assertVisible:
+    id: "walks-tab-mine"
 
-- tapOn: "Zwierzęta"
-- assertVisible: "Wszystkie zwierzęta"
+- tapOn:
+    id: "tab-animals"
+- assertVisible:
+    id: "animals-title"
 
-- tapOn: "Magazyn"
-- assertVisible: "Produkty w magazynie"
+- tapOn:
+    id: "tab-magazyn"
+- assertVisible:
+    id: "magazyn-title"
 
-- tapOn: "Profil"
-- assertVisible: "E-mail"
+- tapOn:
+    id: "tab-profile"
+- assertVisible:
+    id: "profile-email"

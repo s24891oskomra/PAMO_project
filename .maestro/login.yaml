@@ -4,7 +4,8 @@ appId: pl.zwierzapp.app
     clearState: true
 
 - extendedWaitUntil:
-    visible: "Witaj z powrotem"
+    visible:
+      id: "screen-login"
     timeout: 20000
 
 - tapOn:
@@ -20,10 +21,17 @@ appId: pl.zwierzapp.app
 - tapOn:
     id: "login-submit"
 
+- runFlow:
+    file: subflows/dismiss-ios-save-password.yaml
+
 - extendedWaitUntil:
-    visible: "Pulpit"
+    visible:
+      id: "screen-home"
     timeout: 20000
 
-- assertNotVisible: "Witaj z powrotem"
-- assertVisible: "Oczekujące"
-- assertVisible: "Zwierzęta"
+- assertNotVisible:
+    id: "screen-login"
+- assertVisible:
+    id: "dashboard-stat-waiting"
+- assertVisible:
+    id: "dashboard-stat-animals"

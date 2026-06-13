@@ -5,6 +5,7 @@ import CustomButton from "@/components/ui/custom-button";
 import { useEndWalk } from "../hooks/use-walks";
 import { Colors } from "@/constants/colors";
 import { formatDate, formatTime } from "../utils/walks-utils";
+import { TestIds } from "@/constants/test-ids";
 
 export default function WalksCard({ walk }: { walk: Walk }) {
   const { mutate: endWalk } = useEndWalk(walk.id);
@@ -52,7 +53,10 @@ export default function WalksCard({ walk }: { walk: Walk }) {
           </View>
           <Ionicons name="arrow-forward" size={12} color="#D1D5DB" />
           {isOngoing ? (
-            <View className="flex flex-row items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-full">
+            <View
+              testID={TestIds.walks.ongoingBadge}
+              className="flex flex-row items-center gap-1 bg-emerald-50 px-2 py-0.5 rounded-full"
+            >
               <View className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
               <Text className="text-xs font-medium text-emerald-700">Trwa</Text>
             </View>
@@ -67,6 +71,7 @@ export default function WalksCard({ walk }: { walk: Walk }) {
       <View className="flex flex-row items-center gap-3">
         {isOngoing && (
           <CustomButton
+            testID={TestIds.walks.endButton}
             title="Zakończ"
             variant="ghost"
             style={{ padding: 16 }}

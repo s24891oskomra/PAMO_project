@@ -4,6 +4,7 @@ import FoodItemCard from "@/features/inventory/components/food-item-card";
 import { useFoodItems } from "@/features/inventory/hooks/use-inventory";
 import { FlatList, Text, View } from "react-native";
 import { useState } from "react";
+import { TestIds } from "@/constants/test-ids";
 
 export default function FoodItems() {
   const { data, error, isError, isLoading, refetch } = useFoodItems();
@@ -31,6 +32,7 @@ export default function FoodItems() {
 
   return (
     <FlatList
+      testID={TestIds.magazyn.list}
       data={data ?? []}
       renderItem={({ item }) => <FoodItemCard item={item} />}
       keyExtractor={(item) => item.id}

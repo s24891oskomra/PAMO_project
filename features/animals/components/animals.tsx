@@ -4,6 +4,7 @@ import AnimalCard from "@/features/animals/components/animal-card";
 import { useAnimalsWithImages } from "@/features/animals/hooks/use-animals";
 import { FlatList, Text, View } from "react-native";
 import { useState } from "react";
+import { TestIds } from "@/constants/test-ids";
 
 export default function Animals() {
   const {
@@ -37,6 +38,7 @@ export default function Animals() {
 
   return (
     <FlatList
+      testID={TestIds.animals.list}
       data={animals ?? []}
       renderItem={({ item }) => <AnimalCard animal={item} />}
       keyExtractor={(item) => item.id}

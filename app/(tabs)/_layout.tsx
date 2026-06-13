@@ -5,6 +5,7 @@ import { TouchableOpacity, View } from "react-native";
 import { useAuth } from "@/providers/AuthProvider";
 import CustomButton from "@/components/ui/custom-button";
 import { Link } from "expo-router";
+import { TestIds } from "@/constants/test-ids";
 
 export default function TabsLayout() {
   const activeTabColor = Colors.primary[600];
@@ -45,6 +46,7 @@ export default function TabsLayout() {
         name="(home)"
         options={{
           title: "Pulpit",
+          tabBarButtonTestID: TestIds.tabs.home,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
           ),
@@ -54,12 +56,14 @@ export default function TabsLayout() {
         name="walks"
         options={{
           title: "Spacery",
+          tabBarButtonTestID: TestIds.tabs.walks,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="walk-sharp" color={color} size={size} />
           ),
           headerRight: () => (
             <Link href="/walks/modal" asChild>
               <CustomButton
+                testID={TestIds.walks.addWalk}
                 title="Dodaj spacer"
                 variant="primary"
                 style={{ paddingHorizontal: 8 }}
@@ -72,6 +76,7 @@ export default function TabsLayout() {
         name="animals"
         options={{
           title: "Zwierzęta",
+          tabBarButtonTestID: TestIds.tabs.animals,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="paw" color={color} size={size} />
           ),
@@ -81,6 +86,7 @@ export default function TabsLayout() {
         name="magazyn"
         options={{
           title: "Magazyn",
+          tabBarButtonTestID: TestIds.tabs.magazyn,
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cube" color={color} size={size} />
           ),
@@ -90,8 +96,10 @@ export default function TabsLayout() {
         name="profile/index"
         options={{
           title: "Profil",
+          tabBarButtonTestID: TestIds.tabs.profile,
           headerRight: () => (
-            <TouchableOpacity testID="logout-button" onPress={() => logout()}>
+            <TouchableOpacity
+              testID={TestIds.profile.logout} onPress={() => logout()}>
               <Ionicons
                 name="log-out"
                 color={Colors.primary.DEFAULT}

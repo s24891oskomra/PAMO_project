@@ -26,6 +26,7 @@ import {
   getActiveWalk,
   getMyWalks,
 } from "../utils/dashboard-utils";
+import { TestIds } from "@/constants/test-ids";
 
 type SectionErrorProps = {
   message: string;
@@ -90,6 +91,7 @@ export default function Dashboard() {
 
   return (
     <ScrollView
+      testID={TestIds.screens.home}
       showsVerticalScrollIndicator={false}
       refreshControl={
         <RefreshControl refreshing={refreshing} onRefresh={handleRefresh} />
@@ -108,18 +110,21 @@ export default function Dashboard() {
 
       <View className="mb-6 flex-row gap-3">
         <StatCard
+          testID={TestIds.dashboard.statWaiting}
           icon="time-outline"
           loading={isWaitingLoading}
           value={isWaitingError ? "—" : (waitingWalks?.length ?? 0)}
           label="Oczekujące"
         />
         <StatCard
+          testID={TestIds.dashboard.statAnimals}
           icon="paw-outline"
           loading={isAnimalsLoading}
           value={isAnimalsError ? "—" : (animals?.length ?? 0)}
           label="Zwierzęta"
         />
         <StatCard
+          testID={TestIds.dashboard.statToday}
           icon="walk-outline"
           loading={isWalksLoading}
           value={isWalksError ? "—" : walksToday}
