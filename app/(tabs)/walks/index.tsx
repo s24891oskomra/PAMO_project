@@ -6,6 +6,7 @@ import WalksMine from "@/features/walks/components/walks-mine";
 import WalksTabBar, {
   type WalksTab,
 } from "@/features/walks/components/walks-tab-bar";
+import { TestIds } from "@/constants/test-ids";
 
 const TAB_CONTENT: Record<WalksTab, React.ComponentType> = {
   waiting: WalksWaiting,
@@ -18,7 +19,7 @@ export default function WalksPage() {
   const Content = TAB_CONTENT[activeTab];
 
   return (
-    <View className="flex-1 p-4">
+    <View testID={TestIds.screens.walks} className="flex-1 p-4">
       <WalksTabBar activeTab={activeTab} onTabChange={setActiveTab} />
       <View className="mt-4 flex-1">
         <Content />

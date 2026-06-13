@@ -3,7 +3,8 @@ appId: pl.zwierzapp.app
 - launchApp
 
 - extendedWaitUntil:
-    visible: "Pulpit"
+    visible:
+      id: "screen-home"
     timeout: 20000
 
 - tapOn:
@@ -12,24 +13,31 @@ appId: pl.zwierzapp.app
     id: "add-walk-button"
 
 - extendedWaitUntil:
-    visible: "Rozpocznij spacer"
+    visible:
+      id: "create-walk-start"
     timeout: 10000
 
-- tapOn: "kira"
+- tapOn:
+    id: ${WALK_DOG_TEST_ID}
 
-- tapOn: "Rozpocznij spacer"
+- tapOn:
+    id: "create-walk-start"
 
 - extendedWaitUntil:
-    visible: "Oczekujące"
+    visible:
+      id: "walks-tab-waiting"
     timeout: 15000
 
 - tapOn:
     id: "walks-tab-mine"
 - extendedWaitUntil:
-    visible: "Trwa"
+    visible:
+      id: "walk-ongoing-badge"
     timeout: 15000
 
-- tapOn: "Zakończ"
+- tapOn:
+    id: "walk-end-button"
 - extendedWaitUntil:
-    notVisible: "Trwa"
+    notVisible:
+      id: "walk-ongoing-badge"
     timeout: 15000

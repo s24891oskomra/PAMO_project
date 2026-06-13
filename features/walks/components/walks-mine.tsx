@@ -5,6 +5,7 @@ import { useAuth } from "@/providers/AuthProvider";
 import { useState } from "react";
 import Loading from "@/components/loading";
 import Error from "@/components/error";
+import { TestIds } from "@/constants/test-ids";
 
 export default function WalksMine() {
   const { user } = useAuth();
@@ -42,6 +43,7 @@ export default function WalksMine() {
 
   return (
     <FlatList
+      testID={TestIds.walks.mineList}
       data={myWalks}
       renderItem={({ item }) => <WalksCard walk={item} />}
       keyExtractor={(item) => item.id}

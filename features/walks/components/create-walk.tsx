@@ -10,6 +10,7 @@ import CustomButton from "@/components/ui/custom-button";
 import Loading from "@/components/loading";
 import Error from "@/components/error";
 import type { Animal } from "@/features/animals/types/animals-types";
+import { TestIds } from "@/constants/test-ids";
 
 export default function CreateWalk() {
   const router = useRouter();
@@ -61,7 +62,7 @@ export default function CreateWalk() {
   }
 
   return (
-    <View className="flex-1 px-6 pt-8">
+    <View testID={TestIds.screens.createWalk} className="flex-1 px-6 pt-8">
       <View className="mb-6">
         <Text className="text-2xl font-bold text-gray-900">Dodaj spacer</Text>
         <Text className="mt-1 text-sm text-gray-500">
@@ -81,7 +82,7 @@ export default function CreateWalk() {
               return (
                 <TouchableOpacity
                   key={dog.id}
-                  testID={`walk-dog-${dog.id}`}
+                  testID={TestIds.walks.dog(dog.name)}
                   onPress={() => setSelectedAnimal(dog)}
                   activeOpacity={0.7}
                   className={`flex-row items-center rounded-2xl border px-4 py-3 ${
@@ -134,6 +135,7 @@ export default function CreateWalk() {
 
       <View className="pb-8">
         <CustomButton
+          testID={TestIds.walks.createWalkStart}
           title={isPending ? "Dodawanie..." : "Rozpocznij spacer"}
           variant="primary"
           icon="walk-outline"

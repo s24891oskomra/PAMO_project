@@ -1,5 +1,6 @@
 import { View, Text, Pressable } from "react-native";
 import { Colors } from "@/constants/colors";
+import { TestIds } from "@/constants/test-ids";
 
 export type WalksTab = "waiting" | "mine" | "all";
 
@@ -25,7 +26,7 @@ export default function WalksTabBar({
         return (
           <Pressable
             key={tab.key}
-            testID={`walks-tab-${tab.key}`}
+            testID={TestIds.walks.tab(tab.key)}
             onPress={() => onTabChange(tab.key)}
             style={{
               flex: 1,

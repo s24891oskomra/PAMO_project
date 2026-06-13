@@ -3,24 +3,29 @@ appId: pl.zwierzapp.app
 - launchApp
 
 - extendedWaitUntil:
-    visible: "Pulpit"
+    visible:
+      id: "screen-home"
     timeout: 20000
 
 - tapOn:
     id: "tab-profile"
 - extendedWaitUntil:
-    visible: "E-mail"
+    visible:
+      id: "profile-email"
     timeout: 10000
 
 - tapOn:
     id: "logout-button"
 
 - extendedWaitUntil:
-    visible: "Witaj z powrotem"
+    visible:
+      id: "screen-login"
     timeout: 15000
 
 - launchApp
 - extendedWaitUntil:
-    visible: "Witaj z powrotem"
+    visible:
+      id: "screen-login"
     timeout: 20000
-- assertNotVisible: "Pulpit"
+- assertNotVisible:
+    id: "screen-home"

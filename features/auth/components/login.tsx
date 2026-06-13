@@ -19,6 +19,7 @@ import { useMutation } from "@tanstack/react-query";
 import { useAuth } from "@/providers/AuthProvider";
 import { Ionicons } from "@expo/vector-icons";
 import { Colors } from "@/constants/colors";
+import { TestIds } from "@/constants/test-ids";
 
 export default function Login() {
   const { login } = useAuth();
@@ -48,7 +49,7 @@ export default function Login() {
   });
 
   return (
-    <SafeAreaView className="flex-1 bg-white">
+    <SafeAreaView testID={TestIds.screens.login} className="flex-1 bg-white">
       <KeyboardAvoidingView
         behavior={Platform.OS === "ios" ? "padding" : "height"}
         className="flex-1"
@@ -93,7 +94,7 @@ export default function Login() {
                       style={{ marginRight: 12 }}
                     />
                     <TextInput
-                      testID="login-email"
+                      testID={TestIds.login.email}
                       className="flex-1 text-base text-gray-900"
                       placeholder="shelter.admin.krk@example.com"
                       placeholderTextColor={Colors.gray[400]}
@@ -138,7 +139,7 @@ export default function Login() {
                       style={{ marginRight: 12 }}
                     />
                     <TextInput
-                      testID="login-password"
+                      testID={TestIds.login.password}
                       className="flex-1 text-base text-gray-900"
                       placeholder="••••••••"
                       placeholderTextColor={Colors.gray[400]}
@@ -172,7 +173,7 @@ export default function Login() {
           )}
 
           <AppButton
-            testID="login-submit"
+            testID={TestIds.login.submit}
             title="Zaloguj się"
             icon="arrow-forward"
             onPress={onSubmit}

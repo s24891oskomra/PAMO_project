@@ -4,6 +4,7 @@ import WaitingWalkCard from "./walks-waiting-card";
 import { useState } from "react";
 import Loading from "@/components/loading";
 import Error from "@/components/error";
+import { TestIds } from "@/constants/test-ids";
 
 export default function WalksWaiting() {
   const {
@@ -37,6 +38,7 @@ export default function WalksWaiting() {
 
   return (
     <FlatList
+      testID={TestIds.walks.waitingList}
       data={waitingWalks}
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => <WaitingWalkCard animal={item} />}
