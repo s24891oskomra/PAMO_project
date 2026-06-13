@@ -1,6 +1,4 @@
 import { View, Text } from "react-native";
-import { Ionicons } from "@expo/vector-icons";
-import { Colors } from "@/constants/colors";
 import type { FoodItemListEntry } from "../schemas/inventory-schemas";
 import {
   STATUS_LABELS,
