@@ -6,7 +6,8 @@ appId: pl.zwierzapp.app
     visible: "Pulpit"
     timeout: 20000
 
-- tapOn: "Profil"
+- tapOn:
+    id: "tab-profile"
 - extendedWaitUntil:
     visible: "E-mail"
     timeout: 10000

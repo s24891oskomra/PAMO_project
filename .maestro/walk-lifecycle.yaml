@@ -6,8 +6,10 @@ appId: pl.zwierzapp.app
     visible: "Pulpit"
     timeout: 20000
 
-- tapOn: "Spacery"
-- tapOn: "Dodaj spacer"
+- tapOn:
+    id: "tab-walks"
+- tapOn:
+    id: "add-walk-button"
 
 - extendedWaitUntil:
     visible: "Rozpocznij spacer"
@@ -21,7 +23,8 @@ appId: pl.zwierzapp.app
     visible: "Oczekujące"
     timeout: 15000
 
-- tapOn: "Moje"
+- tapOn:
+    id: "walks-tab-mine"
 - extendedWaitUntil:
     visible: "Trwa"
     timeout: 15000

@@ -32,6 +32,8 @@ maestro test .maestro   # E2E tests (requires a running emulator and LOGIN_EMAIL
 
 E2E tests (Maestro) cover the following scenarios: login, tab navigation, walk lifecycle, and logout.
 
+**iOS:** After login, the system may show a **Save Password** sheet. The `login` flow dismisses it automatically. If tests still hang, disable **Settings → Apps → Passwords → Password Options → AutoFill Passwords** on the simulator, or adjust the tap coordinates in `.maestro/subflows/dismiss-ios-save-password.yaml` (use `maestro studio` on your device).
+
 ## Documentation
 
 Code is documented with **JSDoc** comments and generated into HTML with **TypeDoc**.

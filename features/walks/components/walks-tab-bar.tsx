@@ -25,6 +25,7 @@ export default function WalksTabBar({
         return (
           <Pressable
             key={tab.key}
+            testID={`walks-tab-${tab.key}`}
             onPress={() => onTabChange(tab.key)}
             style={{
               flex: 1,

@@ -45,6 +45,7 @@ export default function TabsLayout() {
         name="(home)"
         options={{
           title: "Pulpit",
+          tabBarButtonTestID: "tab-home",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="home" color={color} size={size} />
           ),
@@ -54,12 +55,14 @@ export default function TabsLayout() {
         name="walks"
         options={{
           title: "Spacery",
+          tabBarButtonTestID: "tab-walks",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="walk-sharp" color={color} size={size} />
           ),
           headerRight: () => (
             <Link href="/walks/modal" asChild>
               <CustomButton
+                testID="add-walk-button"
                 title="Dodaj spacer"
                 variant="primary"
                 style={{ paddingHorizontal: 8 }}
@@ -72,6 +75,7 @@ export default function TabsLayout() {
         name="animals"
         options={{
           title: "Zwierzęta",
+          tabBarButtonTestID: "tab-animals",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="paw" color={color} size={size} />
           ),
@@ -81,6 +85,7 @@ export default function TabsLayout() {
         name="magazyn"
         options={{
           title: "Magazyn",
+          tabBarButtonTestID: "tab-magazyn",
           tabBarIcon: ({ color, size }) => (
             <Ionicons name="cube" color={color} size={size} />
           ),
@@ -90,6 +95,7 @@ export default function TabsLayout() {
         name="profile/index"
         options={{
           title: "Profil",
+          tabBarButtonTestID: "tab-profile",
           headerRight: () => (
             <TouchableOpacity testID="logout-button" onPress={() => logout()}>
               <Ionicons
